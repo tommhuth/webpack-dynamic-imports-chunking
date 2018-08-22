@@ -1,0 +1,24 @@
+{
+  "name": "webpack-dynamic-imports-chunking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://tommhuth@github.com/tommhuth/webpack-dynamic-imports-chunking.git",
+  "author": "Tomm Huth <tomm.huth@makingwaves.com>",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "build": "webpack --mode production",
+    "postpack": ""
+  },
+  "dependencies": {
+    "@huth/utils": "^1.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "webpack": "^4.17.1",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.1.0"
+  }
+}
