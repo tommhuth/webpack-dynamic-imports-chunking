@@ -1,4 +1,5 @@
 # This is now a simple webpack config minimum for 
+See also https://github.com/webpack/webpack/issues/7300.
 * Async and entry style js split 
 * SCSS extraction to async and entry
 * Tree shaking with side effects preserved (and working scss)
