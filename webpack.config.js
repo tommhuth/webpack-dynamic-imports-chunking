@@ -1,19 +1,27 @@
 const path = require("path")
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
     entry: {
-        "app": "./entry.js"
+        "entry": "./entry.js"
     },
     output: {
-        filename: "entry.build.js",
         path: path.resolve(__dirname, "dist" ), 
+        filename: "entry.build.js",
         chunkFilename: "[name].build.js",
         publicPath: "/",
     }, 
     optimization: {
         splitChunks: {
-            name: "async"
+            name: "async",
+            cacheGroups: {
+                styles: {
+                    name: "styles",
+                    test: /\.scss$/,
+                    chunks: "all"
+                }   
+            }
         }
     },
     stats: {
@@ -24,7 +32,8 @@ module.exports = {
         errors: true,
     },
     plugins: [
-        new BundleAnalyzerPlugin()
+        new BundleAnalyzerPlugin(),
+        new MiniCssExtractPlugin({ allChunks: true, filename: "[name].bundle.css" }),
     ],
     module: {
         rules: [ 
@@ -43,7 +52,15 @@ module.exports = {
                     }
                 ]
             },
-             
+            {
+                test: /\.scss$/,
+                sideEffects: true,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader", 
+                    "sass-loader", 
+                ],
+            },
         ]
     },
     resolve: {
