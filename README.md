@@ -8,7 +8,7 @@ See also https://github.com/webpack/webpack/issues/7300.
 
 # (Previously) Async imports' child imports do not end up in async imports chunk
 
-This is a simple repo to recreate the Webpack bug reported here: https://github.com/webpack/webpack/issues/6359
+This was a simple repo that attempted to recreate the Webpack bug reported here: https://github.com/webpack/webpack/issues/6359. 
 
 ## Run
 1. `yarn` 
